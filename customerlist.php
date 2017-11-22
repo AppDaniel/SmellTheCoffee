@@ -39,7 +39,7 @@
                     <td>".$rad['customer_address']."</td> 
                     <td>".$rad['customer_zip']."</td> 
                     <td>".$rad['customer_city']."</td> 
-                    <td><a href='delete.php?customer_id=".$rad['customer_id']."' class='btn btn-outline-danger'>Ta bort</td>
+                    <td><a href='deletecustomer.php?customer_id=".$rad['customer_id']."' class='btn btn-outline-danger'>Ta bort</td>
                     
                 </tr>";
         }
