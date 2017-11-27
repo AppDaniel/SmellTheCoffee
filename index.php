@@ -1,3 +1,19 @@
+<?php
+session_start();
+require 'db.php';
+    
+
+if (session_status() == PHP_SESSION_NONE) {
+   echo "session inte startat";
+}
+  
+   else {
+
+    echo $_SESSION['customer_id'];
+   }
+
+
+?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -14,24 +30,23 @@
     <title>Document</title>
 </head>
 <body>
-<?php include('navbar.php')?>
-
+<?php include('navbar.php');?>
 
 
 </form>
-<h1 align="center" style="background-color: green;">Hej Hej!</h1>
+<h1 align="center" style="background-color: green;">Hej Hej!<br><?php echo $_SESSION['customer_firstname']?></h1>
 <?php
 /*
 require('db.php');
 
 
-$sql = "SELECT customer_id, customer_firstname, customer_surname FROM customer";
+$sql = "SELECT customer_id, customer_firstname, customer_lastname FROM customer";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["customer_id"]. " - Name: " . $row["customer_firstname"]. " " . $row["customer_surname"]. "<br>";
+        echo "id: " . $row["customer_id"]. " - Name: " . $row["customer_firstname"]. " " . $row["customer_lastname"]. "<br>";
     }
 } else {
     echo "0 results";
@@ -45,4 +60,3 @@ mysqli_close($conn);
 ?>  
 </body>
 </html>
-
