@@ -1,3 +1,25 @@
+<?php
+if(!(isset($_SESSION['customer_firstname'])))
+{
+  $login = $_SESSION ['login'] = '<a  class="dropdown-item" href="login.php">Login</a>';
+}
+if((isset($_SESSION['customer_firstname'])))
+{
+  $logout = $_SESSION ['logout'] = '<a  class="dropdown-item" href="logout.php">Logout</a>';
+  $minasidor = $_SESSION ['minasidor'] = '<a  class="dropdown-item" href="customerinfo.php">Mina Sidor</a>';
+}
+
+/*
+if(session_status() == PHP_SESSION_NONE)
+   {
+    $_SESSION ['login'] = '<a  class="dropdown-item" href="login.php">Login</a>';
+       
+   }
+   else
+   {
+    $_SESSION ['logout'] = '<a  class="dropdown-item" href="logout.php">Logout</a>';
+   }*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +45,14 @@
       <a class="nav-link" href="newcustomer.php">Ny Medlem</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="login.php">Logga in</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="customerlist.php">Medlemar</a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
       <div class="dropdown-menu" aria-labelledby="dropdown05">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
+      <?php echo $logout?>
+      <?php echo $login?>
+      <?php echo $minasidor?>
         <a class="dropdown-item" href="#">Something else here</a>
       </div>
     </li>
