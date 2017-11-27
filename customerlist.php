@@ -1,3 +1,14 @@
+<?php
+session_start();    
+require 'db.php';
+if (session_status() == PHP_SESSION_NONE) {
+    echo "session inte startat";
+    
+  } else {
+    echo $_SESSION['customer_id'];
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +26,6 @@
 <body>
 <?php include('navbar.php')?>
     <?php 
-        require('db.php');
 
         $sql = "SELECT * FROM customer";
         $tabell = mysqli_query($conn, $sql) 
@@ -33,7 +43,7 @@
             echo "<tr> 
                     <td>".$rad['customer_id']."</td>
                     <td>".$rad['customer_firstname']."</td>
-                    <td>".$rad['customer_surname']."</td> 
+                    <td>".$rad['customer_lastname']."</td> 
                     <td>".$rad['customer_email']."</td> 
                     <td>".$rad['customer_password']."</td> 
                     <td>".$rad['customer_address']."</td> 
@@ -46,7 +56,9 @@
 
         echo "</table>";
      ?>
+     <?php
+echo $_SESSION['customer_password'];
+
+?>
 </body>
 </html>
-
-
