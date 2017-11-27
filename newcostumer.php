@@ -1,3 +1,15 @@
+<?php
+session_start();
+require 'db.php';
+    
+
+if (session_status() == PHP_SESSION_NONE) {
+    echo "session inte startat";
+  } else {
+
+    echo $_SESSION['customer_id'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +28,12 @@
 <?php include('navbar.php')?>
     
 <h1 align="center">Ny medlem</h1>
-<form action="newuser.php" method="post" align="center">
+<form action="addcustomer.php" method="post" align="center">
 <label for="customer_firstname">Namn:</label>
 <input type="text" name="customer_firstname" id="customer_firstname" placeholder="Namn"><br>
 
-<label for="customer_surname" id="customer_surname">Efternamn:</label>
-<input type="text" name="customer_surname" id="customer_surname" placeholder="Efternamn"><br>
+<label for="customer_lastname" id="customer_lastname">Efternamn:</label>
+<input type="text" name="customer_lastname" id="customer_lastname" placeholder="Efternamn"><br>
 
 <label for="customer_email" id="customer_email">Email:</label>
 <input type="email" name="customer_email" id="customer_email" placeholder="Email" required><br>
@@ -37,6 +49,12 @@
 
 <label for="customer_city" id="customer_city">Stad:</label>
 <input type="text" name="customer_city" id="customer_city" placeholder="Stad"><br>
+<!--
+    I am not a robot
+<iframe src="https://www.google.com/recaptcha/api2/anchor?k=6Le3KBUUAAAAACtchMUHwa-btIKw1mzXg3EYhMx7&amp;co=aHR0cHM6Ly9teS5hc29zLmNvbTo0NDM.&amp;hl=en-GB&amp;v=r20171115120512&amp;size=normal&amp;cb=atv046kbqph3" 
+width="304" height="78" role="presentation" frameborder="0" scrolling="no" 
+sandbox="allow-forms allow-popups allow-same-origin allow-scripts 
+allow-top-navigation allow-popups-to-escape-sandbox"></iframe><br>-->
 
 <input type="submit" name="add" style="background-color: green;">
     
