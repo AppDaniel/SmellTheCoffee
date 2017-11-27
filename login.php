@@ -1,6 +1,13 @@
 <?php
-require 'db.php';
 session_start();
+
+require 'db.php';
+
+if((isset($_SESSION['customer_firstname'])))
+{
+       echo '<script type="text/javascript">alert("Du är redan inloggad");</script>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,13 +25,17 @@ session_start();
 </head>
 <body>
 <?php include('navbar.php')?>
+
 <fieldset align="center">
-	<legend>LOGGA IN HÄR</legend> 
+	<legend>LOGGA IN HÄR</legend>  
+    <?php echo $_SESSION['error'];?>
 	<form method="POST" action="logincheck.php"> Användarnamn <br>
 	<input type="email" name="user" class='inp'><br> Lösenord <br>
 	<input type="password" name="pass" class='inp' ><br><br> 
 	<input id="button" type="submit" name="submit" value="Log-In"> 
-	</form> 
+   
+	</form>
+     
 	</fieldset>   
 </body>
 </html>
