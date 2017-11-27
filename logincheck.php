@@ -41,5 +41,33 @@ if (password_verify($pass, $hash)) {
     
     } 
 
+/*
+
+/* now displaying the session id..... 
+
+if($pass == $dbpassword){
+
+    $_SESSION['customer_id']=$row['customer_id'];
+    $_SESSION['customer_firstname']=$row['customer_firstname'];
+    $_SESSION['customer_lastname']=$row['customer_lastname'];
+
+    $_SESSION['customer_email']=$row['customer_email'];
+    $_SESSION['customer_password']=$row['customer_password'];
+    $_SESSION['customer_address']=$row['customer_address'];
+    $_SESSION['customer_zip']=$row['customer_zip'];
+    $_SESSION['customer_city']=$row['customer_city'];
+
+   
+    
+    header("Location: index.php");
+
+} else{
+
+    $_SESSION['error'] = '<h1 style="color: red;">Fel anv eller email</h1>';
+    header("Location: login.php");
+    
+    }  
+
+*/
 if(isset($_POST['submit'])) { SignIn(); } 
 ?>
